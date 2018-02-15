@@ -27,7 +27,9 @@ try {
 try {
     $expression = $parser->parse($expressionString);
     echo $expression->evaluate();
-} catch (\MathExprParser\Exception\Parser\ParserException $e) {
+} catch (\MathExprParser\Exception\UserShownException $e) {
+    echo $e->getMessage();
+} catch (\Throwable $e) {
     /** log $e->getMessage here */
     echo 'An error has occurred';
 }
